@@ -14,7 +14,9 @@ public class Program {
 //		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 //		LocalDate.parse("22/04/1985", formatter);
 		SellerDao sellerDao = DaoFactory.createSellerDao();
-		Seller seller = sellerDao.findById(10);
+
+		System.out.println("==== TEST 1: seller findById ===");
+		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
 	}
 
