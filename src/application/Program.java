@@ -51,6 +51,11 @@ public class Program {
 		System.out.println("To be Updated ==>" +sellerDao.findById(seller4.getId()));
 		sellerDao.update(seller5);
 		System.out.println("Updated ==>" +sellerDao.findById(seller4.getId()));
+
+		System.out.println();
+		System.out.println("==== TEST 6: seller delete ===");
+		sellerDao.deleteById(seller4.getId());
+		System.out.println("Deleted =>" +seller4);
 		
 		DB.closeConnection();
 	}
