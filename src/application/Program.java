@@ -43,7 +43,14 @@ public class Program {
 		Seller seller4 =sellerDao.findById(seller.getId());
 		System.out.println("Inserted => " + seller4);
 
-		
+		System.out.println();
+		System.out.println("==== TEST 5: seller findById ===");
+		Seller seller5 = sellerDao.findById(seller4.getId());
+		seller5.setBaseSalary(seller5.getBaseSalary() + 200.0);
+		seller5.setName("Cleber Miranda Barbosa");
+		System.out.println("To be Updated ==>" +sellerDao.findById(seller4.getId()));
+		sellerDao.update(seller5);
+		System.out.println("Updated ==>" +sellerDao.findById(seller4.getId()));
 		
 		DB.closeConnection();
 	}
