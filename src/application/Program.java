@@ -14,8 +14,6 @@ public class Program {
 
 	public static void main(String[] args) {
 
-//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//		LocalDate.parse("22/04/1985", formatter);
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 
 		System.out.println("==== TEST 1: seller findById ===");
@@ -44,7 +42,7 @@ public class Program {
 		System.out.println("Inserted => " + seller4);
 
 		System.out.println();
-		System.out.println("==== TEST 5: seller findById ===");
+		System.out.println("==== TEST 5: seller update ===");
 		Seller seller5 = sellerDao.findById(seller4.getId());
 		seller5.setBaseSalary(seller5.getBaseSalary() + 200.0);
 		seller5.setName("Cleber Miranda Barbosa");

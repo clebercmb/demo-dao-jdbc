@@ -128,9 +128,6 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setInt(1, id);
 			
 			st.executeUpdate();
-			//if (rowsAffected  == 0) {
-			//	throw new DbException("Unexpected  error! No rows affected");
-			//}
 				
 		} 
 		catch (SQLException e)  
@@ -249,19 +246,19 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public List<Seller> findAll() {
-		PreparedStatement st = null;
+		Statement st = null;
 		ResultSet rs = null;
 		Seller seller = null;
 		List<Seller> sellerList = new ArrayList<>();
 		
 		try {
-			st = conn.prepareStatement("SELECT seller.*,department.Name as DepName\n" 
+			st = conn.createStatement();
+						
+			rs = st.executeQuery(
+					"SELECT seller.*,department.Name as DepName\n" 
 					+ "FROM seller INNER JOIN department\n" 
 					+ "ON seller.DepartmentId = department.Id\n " 
 					+ "ORDER BY seller.Name");
-			
-			
-			rs = st.executeQuery();
 			Map<Integer, Department> map =  new HashMap<>();
 			
 			while ( rs.next() ) {
